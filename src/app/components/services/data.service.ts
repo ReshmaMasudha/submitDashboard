@@ -35,27 +35,27 @@ export class DataService {
       {
         code: 'PO1',
         title: 'Decision Making Skill',
-        evaluation: 5,
+        evaluationText: 'Evaluation: 5 out of 12',
         evaluationPercentage: 80,
-        description: 'Application of tools & techniques relevant to management theories and practices...',
-        mappedPEOs: 'PEO 5'
+        description: 'Application of tools & techniques relevant to management theories and practices in analyzing & solving business issues.',
+        mappedPEOs: ['PEO 5']
       },
       {
         code: 'PO2',
         title: 'Communication Skill',
-        evaluation: 5,
+        evaluationText: 'Evaluation: 5 out of 12',
         evaluationPercentage: 80,
-        description: 'Ability to effectively communicate in professional and personal settings...',
-        mappedPEOs: 'PEO 3'
+        description: 'Ability to effectively communicate in professional and personal settings.',
+        mappedPEOs: ['PEO 3'] 
       },
       {
         code: 'PO3',
         title: 'Employability Skill',
-        evaluation: 5,
+        evaluationText: 'Evaluation: 5 out of 12',
         evaluationPercentage: 80,
-        description: 'Skills that enhance employability and ability to perform effectively in various roles...',
-        mappedPEOs: 'PEO 4'
+        description: 'Skills that enhance employability and ability to perform effectively in various roles.',
+        mappedPEOs: ['PEO 4'] 
       }
-    ]
+    ];
   }
 }
