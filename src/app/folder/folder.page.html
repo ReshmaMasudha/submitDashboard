@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- Hamburger Icon -->
+    </ion-buttons>
+    <ion-title>
+      Detailed Overview
+    </ion-title>
+    <ion-buttons slot="end">
+      <!-- User Details (Profile Picture and Name) -->
+      <ion-avatar>
+        <img class="userClass" src="../../assets/icon/user.svg" alt="User Profile Picture">
+      </ion-avatar>
+      <ion-label>George William</ion-label>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-menu side="start" contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Home</ion-item>
+        <ion-item>Courses</ion-item>
+        <ion-item>Assessments</ion-item>
+        <ion-item>Reports</ion-item>
+        <ion-item>Settings</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div id="main-content">
+    <ion-grid>
+      <!-- PEO Selection Header (Program Educational Objectives) -->
+      <ion-row class="peo-selection">
+        <ion-col size="12">
+          <ion-segment>
+            <ion-segment-button value="all">All</ion-segment-button>
+            <ion-segment-button value="peo1">PEO-1</ion-segment-button>
+            <ion-segment-button value="peo2">PEO-2</ion-segment-button>
+            <ion-segment-button value="peo3">PEO-3</ion-segment-button>
+            <ion-segment-button value="peo4">PEO-4</ion-segment-button>
+            <ion-segment-button value="peo5">PEO-5</ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+
+      <!-- Main Content Section with Sidebar and Graphs -->
+      <ion-row>
+        <!-- Left Side (Program Outcomes and Course Info) -->
+        <ion-col size="12" size-lg="3" size-md="3" size-sm="12" class="left-panel">
+          <!-- Program Outcomes Section -->
+          <div class="program-outcomes-container">
+            <div class="outcome-card" *ngFor="let outcome of outcomes">
+              <div class="outcome-header">
+                <div class="outcome-title">
+                  <span class="outcome-code">{{ outcome.code }}</span>
+                  <span class="outcome-name">{{ outcome.title }}</span>
+                </div>
+                <span class="evaluation">{{ outcome.evaluationText }}</span>
+              </div>
+          
+              <div class="progress-section">
+                <div class="progress-bar">
+                  <div class="progress" [style.width]="outcome.evaluationPercentage + '%'"></div>
+                </div>
+                <span class="progress-percentage">{{ outcome.evaluationPercentage }}%</span>
+              </div>
+          
+              <div class="outcome-description">
+                <p>{{ outcome.description }}</p>
+                <div class="peos-mapped">
+                  PEOs Mapped: 
+                  <span *ngFor="let peo of outcome.mappedPEOs" class="peo-badge">{{ peo }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </ion-col>
+
+        <ion-col size="12" size-lg="2" size-md="3" size-sm="12" class="left-panel">
+          <!-- Course Info Component -->
+          <ion-card class="course-info">
+            <app-course-details></app-course-details>
+          </ion-card>
+        </ion-col>
+
+        <!-- Right Side (Graphs Section) -->
+        <ion-col size="12" size-lg="7" size-md="6" size-sm="12" class="right-panel">
+          <!-- Header Info: Total Students and Average Marks -->
+          <ion-card class="header-info">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                  <ion-card-title class="title">Total Students: 102</ion-card-title>
+                </ion-col>
+                <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="6">
+                  <ion-card-title class="title">Course Average Mark: 85%</ion-card-title>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+
+          <!-- Assessment Progress and Attendance Graphs -->
+          <ion-row>
+            <!-- Assessment Progress Chart -->
+            <ion-col size="12">
+              <ion-card class="assessment-progress">
+                <app-assessment-progress></app-assessment-progress>
+              </ion-card>
+            </ion-col>
+
+            <!-- Student Attendance Chart -->
+            <ion-col size="12">
+              <ion-card class="student-attendance">
+                <app-student-attendance></app-student-attendance>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+
+
+
+<!-- <ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>PEO Dashboard</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" size-xl="4" size-md="4" size-lg="4" size-sm="12">
+          <app-course-details></app-course-details>
+        </ion-col>
+        <ion-col size="8" size-xl="8" size-md="8" size-lg="8" size-sm="12">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12">
+                <app-assessment-progress></app-assessment-progress>
+              </ion-col>
+              <ion-col size="12">
+                <app-student-attendance></app-student-attendance>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-content> -->
